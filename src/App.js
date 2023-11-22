@@ -1,16 +1,13 @@
-import React from "react";
-import Todo from "./Components/Todo";
-import { BrowserRouter, Routes,Route } from "react-router-dom";
 
+import './App.css';
+import Todoform from './components/Todoform';
+import 'bootstrap/dist/css/bootstrap.min.css';
 const App = () => {
   return (
-    <BrowserRouter>
-      <div>
-        <Routes>
-          <Route path="/" element={<Todo />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <div>
+      <Todoform />
+    </div>
   );
-};
+}
+
 export default App;

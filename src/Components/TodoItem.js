@@ -1,43 +1,28 @@
 import React from "react";
-import styles from './todoItem.module.css';
+import styles from "./todoItem.module.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 
+const ToDoList = ({item, index, handleEdit, handleDelete}) => {
 
-const TodoItem = ({ item, index, handleEdit, handleDelete }) => {
-  return (
-    <div className={styles.maindiv}>
-    <table className={styles.mainTable}>
-      <thead>
-        <tr>
-          <th></th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <div className={styles.itemText}>
-              {index + 1} {item.text}
+    return (
+        <div className={styles.container}>
+            <div>
+            {index + 1} {item.text}
             </div>
-           
-          </td>
-          <td>
-            <Button onClick={() => handleEdit(index)} variant="outline-warning">
-            <i class="fa-solid fa-pen-to-square"></i>
-            </Button>
-          </td>
-          <td>
-            <Button onClick={() => handleDelete(index)} variant="outline-danger">
-            <i class="fa-solid fa-trash-can"></i>  
-             </Button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-  );
+            <div className={styles.action}>
+                {/* <button >
+                    <i class="fa-solid fa-square-check"></i>
+                </button> */}
+                <Button variant="warning" onClick={() => handleEdit(index)}>
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </Button>
+                <Button variant="danger" onClick={() => handleDelete(index)}>
+                    <i class="fa-solid fa-trash-can"></i>               
+                </Button>
+            </div>
+        </div>
+    );
 };
 
-export default TodoItem;
+export default ToDoList;
